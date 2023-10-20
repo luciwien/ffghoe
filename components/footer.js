@@ -44,17 +44,17 @@ export default function Footer(props) {
       <div className={'mt-4'}>
         <h3 className={'text-lg font-light text-gray-500 dark:text-gray-600'}>Content</h3>
         <ul className='text-sm font-medium '>
-          <li><a href={'/about'} rel='noopener' target='_blank'>Über uns</a></li>
-          <li><a href={'/about'} rel='noopener' target='_blank'>Bibliothek</a></li>
-          <li><a href={'/about'} rel='noopener' target='_blank'>Events</a></li>
+          <li><a href={'/about'} >Über uns</a></li>
+          <li><a href={'/bibliothek'} >Bibliothek</a></li>
+          <li><a href={'/events'} >Events</a></li>
         </ul>
       </div>
       <div className={'mt-4'}>
         <h3 className={'text-lg font-light text-gray-500 dark:text-gray-600'}>Legal & Other</h3>
         <ul className='text-sm font-medium '>
-          <li><a href={'/about'} rel='noopener' target='_blank'>Kontakt</a></li>
-          <li><a href={'/about'} rel='noopener' target='_blank'>Mitglied Werden</a></li>
-          <li><a href={'/about'} rel='noopener' target='_blank'>Impressum & Datenschutz</a></li>
+          <li><a href={'/contact'} >Kontakt</a></li>
+          <li><a href={'/antrag'} >Mitglied Werden</a></li>
+          <li><a href={'/impressum'} >Impressum & Datenschutz</a></li>
         </ul>
       </div>
       {/*<ThemeSwitch />*/}
