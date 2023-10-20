@@ -53,23 +53,21 @@ export default function Post({ posts: initialposts }) {
   }, [posts]);
 
   const handleNextPage = () => {
-    router.push(`/archive?page=${pageIndex + 1}`);
+    router.push(`/bibliothek?page=${pageIndex + 1}`);
   };
 
   const handlePrevPage = () => {
-    router.push(`/archive?page=${pageIndex - 1}`);
+    router.push(`/bibliothek?page=${pageIndex - 1}`);
   };
 
   return (
     <>
       <Container>
         <h1 className="text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-          Archive
+          Bibliothek
         </h1>
         <div className="text-center">
-          <p className="mt-2 text-lg">
-            See all posts we have ever written.
-          </p>
+
         </div>
         {posts && posts?.length === 0 && (
           <div className="flex h-40 items-center justify-center">

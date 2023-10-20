@@ -1,4 +1,4 @@
-import Archive from "./archive";
+import Archive from "./bibliothek";
 
 import { getPaginatedPosts } from "@/lib/sanity/client";
 

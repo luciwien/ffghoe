@@ -8,6 +8,8 @@ import {
   previewSecretId
 } from "./lib/sanity/config";
 import settings from "./lib/sanity/schemas/settings";
+import impressum from "./lib/sanity/schemas/impressum";
+import about from "./lib/sanity/schemas/about";
 import {
   pageStructure,
   singletonPlugin
@@ -21,18 +23,18 @@ console.log(projectId);
 
 export default defineConfig({
   name: "default",
-  title: "Stablo Template",
+  title: "FFGHÖ",
   basePath: "/studio",
   projectId: projectId,
   dataset: dataset,
 
   plugins: [
     deskTool({
-      structure: pageStructure([settings])
+      structure: pageStructure([about, impressum,settings])
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
-    singletonPlugin(["settings"]),
+    singletonPlugin(["about", "impressum","settings"]),
     visionTool(),
     unsplashImageAsset(),
     table(),
