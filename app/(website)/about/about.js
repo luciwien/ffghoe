@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { PortableText } from '@/lib/sanity/plugins/portabletext'
 
 export default function About({ authors, settings, about }) {
-  console.log("hgelllllll")
   console.log(about)
   return (
     <Container>
@@ -18,7 +17,9 @@ export default function About({ authors, settings, about }) {
       </div>
 
       <div className='prose mx-auto mt-14 text-center dark:prose-invert'>
-        {about.beschreibung ?? <PortableText value={about.beschreibung} />}
+        {
+          about.beschreibung ? <PortableText value={about.beschreibung} /> : "empty"
+        }
         <p>
           <Link href='/contact'>Schreib uns eine Nachricht</Link>
           <Link href='/antrag'>oder werde Mitglied</Link>
