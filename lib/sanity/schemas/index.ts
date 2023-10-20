@@ -9,3 +9,4 @@ import about from './about'
 import friends from './friends'
 
 export const schemaTypes = [about, post, events, friends, author, category, settings, blockContent, impressum]
+
