@@ -21,6 +21,7 @@ export default function Footer(props) {
             target='_blank'>
             Lucas Prabant
           </a>
+          {" "}
         </span>
             <span>&middot;</span>
             <span>

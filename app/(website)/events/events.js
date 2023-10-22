@@ -10,12 +10,12 @@ export default function Events({ events }) {
         {events && events.map(event => {
           const imageProps = urlForImage(event.mainImage)
           return (
-            <div className={'flex flex-row border-separate my-2 py-3'} key={event._id}>
+            <div className={'flex flex-row items-center border-separate my-2 py-3'} key={event._id}>
               <div className={'flex flex-col mr-10  font-light text-xl'}>
                 <span className={'text-center'}>
                 {format(
                   parseISO(
-                    event?.publishedAt || event._createdAt
+                    event?.createdAt || event.von
                   ),
                   'dd.MM'
                 )}
@@ -23,7 +23,7 @@ export default function Events({ events }) {
                 <span className={'text-center'}>
                 {format(
                   parseISO(
-                    event?.publishedAt || event._createdAt
+                    event?.createdAt || event.von
                   ),
                   'yyyy'
                 )}
