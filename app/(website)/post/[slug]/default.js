@@ -39,7 +39,7 @@ export default function Post(props) {
             {post.title}
           </h1>
 
-          <div className='mt-3 flex justify-center space-x-3 text-gray-500 '>
+          <div className='mt-3 flex justify-center space-x-3 text-gray-500'>
             <div className='flex items-center gap-3'>
               <div className='relative h-10 w-10 flex-shrink-0'>
                 {AuthorimageProps && (
@@ -74,7 +74,18 @@ export default function Post(props) {
               </div>
             </div>
           </div>
+          {post.url &&
+            <div className='flex flex-col items-center justify-center mt-6 px-6'>
+              <Link
+                href={post.url}
+                className='border-blue-500 border-2 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 '>
+                Original Artikel abrufen →
+              </Link>
+              <Abgerufen abgerufen={post.abgerufen} />
+            </div>
+          }
         </div>
+
       </Container>
       <Container>
         <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
@@ -89,9 +100,10 @@ export default function Post(props) {
             />
           )}
         </div>
-        <div className={"mt-2"}>
+
+        <div className={'mt-2'}>
           <p>{post.mainImage?.description}</p>
-          <p className={"lg:text-left text-sm text-gray-500 dark:text-gray-600"}> {post.mainImage?.copyright}</p>
+          <p className={'lg:text-left text-sm text-gray-500 dark:text-gray-600'}> {post.mainImage?.copyright}</p>
         </div>
       </Container>
 
@@ -127,4 +139,24 @@ const MainImage = ({ image }) => {
       </figcaption>
     </div>
   )
+}
+
+const Abgerufen = ({abgerufen}) => {
+    console.log(abgerufen)
+  if(abgerufen){
+    return (<p
+      className='mx-auto bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-gray-500 dark:text-white  '>
+      Status:&nbsp;
+      <time
+        className='text-gray-500 dark:text-gray-400'
+        dateTime={abgerufen}>
+        {format(
+          parseISO(abgerufen),
+          'MMMM dd, yyyy'
+        )}
+      </time>
+    </p>)
+  }else{
+  return "oida";
+  }
 }
