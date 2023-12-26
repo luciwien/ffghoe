@@ -43,22 +43,18 @@ export default function Post(props) {
             <div className='flex items-center gap-3'>
               <div className='relative h-10 w-10 flex-shrink-0'>
                 {AuthorimageProps && (
-                  <Link href={`/author/${post.author.slug.current}`}>
-                    <Image
-                      src={AuthorimageProps.src}
-                      alt={post?.author?.name}
-                      className='rounded-full object-cover'
-                      fill
-                      sizes='40px'
-                    />
-                  </Link>
+                  <Image
+                    src={AuthorimageProps.src}
+                    alt={post?.author?.name}
+                    className='rounded-full object-cover'
+                    fill
+                    sizes='40px'
+                  />
                 )}
               </div>
               <div>
                 <p className='text-gray-800 dark:text-gray-400'>
-                  <Link href={`/author/${post.author.slug.current}`}>
-                    {post.author.name}
-                  </Link>
+                  {post.author.name}
                 </p>
                 <div className='flex items-center space-x-2 text-sm'>
                   <time
@@ -141,9 +137,9 @@ const MainImage = ({ image }) => {
   )
 }
 
-const Abgerufen = ({abgerufen}) => {
-    console.log(abgerufen)
-  if(abgerufen){
+const Abgerufen = ({ abgerufen }) => {
+  console.log(abgerufen)
+  if (abgerufen) {
     return (<p
       className='mx-auto bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-gray-500 dark:text-white  '>
       Status:&nbsp;
@@ -156,7 +152,7 @@ const Abgerufen = ({abgerufen}) => {
         )}
       </time>
     </p>)
-  }else{
-  return "oida";
+  } else {
+    return 'oida'
   }
 }
