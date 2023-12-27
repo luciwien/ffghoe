@@ -8,7 +8,6 @@ import Image from 'next/image'
 import { urlForImage } from '@/lib/sanity/image'
 import cx from 'clsx'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
-import { myLoader } from '@/utils/all'
 
 export default function Navbar(props) {
   const leftmenu = [
@@ -31,13 +30,13 @@ export default function Navbar(props) {
       label:"Kontakt",
       href:"/contact"
     },
-    {
-      label: 'Freund*innen',
-      href: '/friends'
-    },
+    // {
+    //   label: 'Freund*innen',
+    //   href: '/friends'
+    // },
     {
       label: 'Mitglied werden',
-      href: '/antrag'
+      href: '/contact'
     }
   ]
 
