@@ -36,7 +36,7 @@ export default function Navbar(props) {
     // },
     {
       label: 'Mitglied werden',
-      href: '/contact'
+      href: '/antrag'
     }
   ]
 
