@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import { urlForImage } from "@/lib/sanity/image";
 import Navbar from "@/components/navbar";
 import { Analytics } from '@vercel/analytics/react';
+import Countdown from '@/components/countdown';
 
 export async function sharedMetaData(params) {
   const settings = await getSettings();
@@ -50,6 +51,9 @@ export async function generateMetadata({ params }) {
 export default async function Layout({ children, params }) {
   const settings = await getSettings();
   return (
+
+    <Countdown></Countdown>
+    /*
     <>
       <Navbar {...settings} />
 
@@ -58,7 +62,7 @@ export default async function Layout({ children, params }) {
       <Footer {...settings} />
 
       <Analytics />
-    </>
+    </>*/
   );
 }
 // enable revalidate for all pages in this layout
