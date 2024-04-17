@@ -52,8 +52,6 @@ export default async function Layout({ children, params }) {
   const settings = await getSettings();
   return (
 
-    <Countdown></Countdown>
-    /*
     <>
       <Navbar {...settings} />
 
@@ -62,7 +60,7 @@ export default async function Layout({ children, params }) {
       <Footer {...settings} />
 
       <Analytics />
-    </>*/
+    </>
   );
 }
 // enable revalidate for all pages in this layout
