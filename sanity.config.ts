@@ -10,6 +10,7 @@ import {
 import settings from "./lib/sanity/schemas/settings";
 import impressum from "./lib/sanity/schemas/impressum";
 import about from "./lib/sanity/schemas/about";
+import queerfootballheroes from './lib/sanity/schemas/queerfootballheroes'
 import {
   pageStructure,
   singletonPlugin
@@ -30,11 +31,11 @@ export default defineConfig({
 
   plugins: [
     deskTool({
-      structure: pageStructure([about, impressum,settings])
+      structure: pageStructure([about, queerfootballheroes, impressum,settings])
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
-    singletonPlugin(["about", "impressum","settings"]),
+    singletonPlugin(["about", "queerfootballheroes", "impressum","settings"]),
     visionTool(),
     unsplashImageAsset(),
     table(),

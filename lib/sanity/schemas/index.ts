@@ -6,9 +6,12 @@ import settings from './settings'
 import impressum from './impressum'
 import events from './events'
 import about from './about'
-import friends from './friends'
+import subsite from './subsite'
+import heroes from './heroes'
+import queerfootballheroes from './queerfootballheroes'
+import timeline from "./timeline"
 
-export const schemaTypes = [about, post, events, friends, author, category, settings, blockContent, impressum]
+export const schemaTypes = [about, post, events, author, category, subsite, heroes, timeline, queerfootballheroes, settings, blockContent, impressum]
 
 //about (List)
 // -> Subpage
