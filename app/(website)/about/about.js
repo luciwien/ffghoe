@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { PortableText } from '@/lib/sanity/plugins/portabletext'
 
 export default function About({ authors, settings, about }) {
-  console.log(about)
   return (
     <Container>
       <h1

@@ -1,4 +1,4 @@
-import { getSettings } from "@/lib/sanity/client";
+import { getSettings,getAboutPages, getQfhPages,getInfocornerPages } from "@/lib/sanity/client";
 import Footer from "@/components/footer";
 import { urlForImage } from "@/lib/sanity/image";
 import Navbar from "@/components/navbar";
@@ -50,10 +50,14 @@ export async function generateMetadata({ params }) {
 
 export default async function Layout({ children, params }) {
   const settings = await getSettings();
+  const aboutPages = await getAboutPages();
+  const qfhPages = await getQfhPages();
+  const infocornerPages = await getInfocornerPages();
+  console.log(aboutPages,qfhPages)
   return (
 
     <>
-      <Navbar {...settings} />
+      <Navbar settings={settings} aboutPages={aboutPages.subsites} qfhPages={qfhPages.subsites} infocornerPages={infocornerPages.subsites}/>
 
       <div>{children}</div>
 

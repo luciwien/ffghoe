@@ -138,7 +138,7 @@ const MainImage = ({ image }) => {
 }
 
 const Abgerufen = ({ abgerufen }) => {
-  console.log(abgerufen)
+
   if (abgerufen) {
     return (<p
       className='mx-auto bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-gray-500 dark:text-white  '>
