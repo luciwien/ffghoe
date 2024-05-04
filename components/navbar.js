@@ -32,7 +32,7 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
     },
     {
       label: 'Kontakt',
-      href: '/kontakt'
+      href: '/contact'
     }
   ]
 
