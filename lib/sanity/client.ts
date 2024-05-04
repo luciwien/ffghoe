@@ -18,7 +18,8 @@ import {
   aboutPagesQuery,
   qfhPagesQuery,
   infocornerQuery,
-  infocornerPagesQuery
+  infocornerPagesQuery,
+  getSubsiteContentQuery, pathquerySubsite
 } from './groq'
 import { createClient } from 'next-sanity'
 
@@ -82,6 +83,14 @@ export async function getPostBySlug(slug) {
 export async function getAllPostsSlugs() {
   if (client) {
     const slugs = (await client.fetch(pathquery)) || []
+    return slugs.map(slug => ({ slug }))
+  }
+  return []
+}
+
+export async function getAllSubsiteSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(pathquerySubsite)) || []
     return slugs.map(slug => ({ slug }))
   }
   return []
@@ -162,6 +171,8 @@ export async function getAboutPages() {
   return []
 }
 
+
+
 // QFH
 
 export async function getQfhPages() {
@@ -177,4 +188,14 @@ export async function getInfocornerPages() {
     return (await client.fetch(infocornerPagesQuery)) || []
   }
   return []
+}
+
+// Subsites
+
+
+export async function getSubsiteBySlug(slug) {
+  if (client) {
+    return (await client.fetch(getSubsiteContentQuery, { slug })) || {}
+  }
+  return {}
 }

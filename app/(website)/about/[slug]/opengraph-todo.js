@@ -1,5 +1,5 @@
 import { ImageResponse } from "@vercel/og";
-import { getPostBySlug } from "@/lib/sanity/client";
+import { getProjectBySlug } from "@/lib/sanity/client";
 import OgImage from "@/components/ogimage";
 
 // const InterRegular = fetch(
@@ -11,7 +11,7 @@ const InterBold = fetch(
 ).then(res => res.arrayBuffer());
 
 export default async function handler({ params }) {
-  const post = await getPostBySlug(params.slug);
+  const project = await getProjectBySlug(params.slug);
 
   const fontData = await InterBold;
   // const [interRegularFont, interBoldFont] = await Promise.all([
@@ -19,7 +19,7 @@ export default async function handler({ params }) {
   //   InterBold
   // ]);
 
-  return new ImageResponse(<OgImage post={post} />, {
+  return new ImageResponse(<OgImage project={project} />, {
     width: 1200,
     height: 630,
     fonts: [

@@ -49,11 +49,10 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Layout({ children, params }) {
-  const settings = await getSettings();
+ const settings = await getSettings();
   const aboutPages = await getAboutPages();
   const qfhPages = await getQfhPages();
   const infocornerPages = await getInfocornerPages();
-  console.log(aboutPages,qfhPages)
   return (
 
     <>

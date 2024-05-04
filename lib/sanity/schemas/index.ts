@@ -11,8 +11,8 @@ import heroes from './heroes'
 import queerfootballheroes from './queerfootballheroes'
 import timeline from "./timeline"
 import infocorner from './infocorner'
-
-export const schemaTypes = [about, post, events, author, category, subsite,infocorner, heroes, timeline, queerfootballheroes, settings, blockContent, impressum]
+import landingpage from './landingpage'
+export const schemaTypes = [about, post, events, author, category, subsite,infocorner, heroes, timeline, landingpage, queerfootballheroes, settings, blockContent, impressum]
 
 //about (List)
 // -> Subpage
