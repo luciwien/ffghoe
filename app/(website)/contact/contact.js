@@ -49,16 +49,16 @@ export default function Contact({ settings }) {
         Kontakt
       </h1>
       <div className="text-center">
-        <p className="text-lg">Hab ihr noch fragen zu unserem Verein?</p>
+        <p className="text-lg">Platz für Anfragen, Anmerkungen, Anregungen, Wünsche</p>
       </div>
 
       <div className="grid my-10 md:grid-cols-2">
         <div className="my-10">
           <h2 className="text-2xl font-semibold dark:text-white">
-            Schreib uns eine Nachricht
+            Wir freuen uns auf eure Nachricht!
           </h2>
           <p className="max-w-sm mt-5">
-            Falls ihr fragen habt zu unserem Verein, zögert nicht uns eine Nachricht zu schreiben. Füllt das Formular aus oder sendet uns direkt eine E-Mail.
+            Ihr wollt mit uns arbeiten, unsere Arbeit unterstützen, darüber berichten oder einfach Kontakt mit Gleichgesinnten? Als ehrenamtlich geführter Verein bemühen wir uns, innerhalb von 3 Werktagen auf eure Nachrichten zu reagieren.
           </p>
 
           <div className="mt-5">
