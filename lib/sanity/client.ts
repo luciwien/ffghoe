@@ -19,7 +19,7 @@ import {
   qfhPagesQuery,
   infocornerQuery,
   infocornerPagesQuery,
-  getSubsiteContentQuery, pathquerySubsite
+  getSubsiteContentQuery, pathquerySubsite, landingpageQuery
 } from './groq'
 import { createClient } from 'next-sanity'
 
@@ -50,7 +50,6 @@ export const fetcher = async ([query, params]) => {
     }
   }
 })()
-
 export async function getAllPosts() {
   if (client) {
     return (await client.fetch(postquery)) || []
@@ -172,7 +171,6 @@ export async function getAboutPages() {
 }
 
 
-
 // QFH
 
 export async function getQfhPages() {
@@ -198,4 +196,12 @@ export async function getSubsiteBySlug(slug) {
     return (await client.fetch(getSubsiteContentQuery, { slug })) || {}
   }
   return {}
+}
+
+
+export async function getLandingPage() {
+  if (client) {
+    return (await client.fetch(landingpageQuery)) || []
+  }
+  return []
 }

@@ -1,36 +1,104 @@
-import Link from "next/link";
-import Container from "@/components/container";
-import PostList from "@/components/postlist";
+import Link from 'next/link'
+import Container from '@/components/container'
+import PostList from '@/components/postlist'
+import { PortableText } from '@portabletext/react'
+import Image from 'next/image'
+import { urlForImage } from '@/lib/sanity/image'
+import { PhotoIcon } from "@heroicons/react/24/outline";
 
-export default function Post({ posts }) {
-  return (
-    <>
-      {posts && (
+export default function LandingPage({ landingPage }) {
+  const posts = landingPage.articles
+  const topics = landingPage.subsites
+  console.log(landingPage)
+  let even = true
+
+
+  return (<>
+      <div className={'bg-gradient-to-t from-indigo-200 ...'}>
         <Container>
-          <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
-            {posts.slice(0, 2).map(post => (
-              <PostList
-                key={post._id}
-                post={post}
-                aspect="landscape"
-                preloadImage={true}
-              />
-            ))}
-          </div>
-          <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
-            {posts.slice(2, 14).map(post => (
-              <PostList key={post._id} post={post} aspect="square" />
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/bibliothek"
-              className="relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
-              <span>View all Posts</span>
-            </Link>
+
+
+          <div className={'flex flex-col justify-center align-middle h-48'}>
+            <h1
+              className={'mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{landingPage.title}</h1>
+            <p className={'text-center text-lg'}>{landingPage.subtitle}</p>
           </div>
         </Container>
-      )}
+      </div>
+      <Container>
+
+        <div className={'lg:max-w-screen-lg max-h-48 mt-12'}>
+          <h1 className={'font-light text-3xl text-center'}>Blog Posts</h1>
+        </div>
+
+        {posts && (<>
+            <div className='mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 '>
+              {posts.map(post => (
+                <PostList key={post._id} post={post} aspect='square' />
+              ))}
+            </div>
+            <div className='mt-10 flex justify-center'>
+              <Link
+                href='/bibliothek'
+                className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
+                <span>View all Posts</span>
+              </Link>
+            </div>
+          </>
+        )}
+      </Container>
+      <Container>
+        {topics && (<>
+            <div className='grid gap-10 md:grid-cols-1 lg:gap-10 xl:grid-cols-1 '>
+              {topics.map(topic => (
+                <div key={topic.title} className={' lg:mt-24  flex flex-row gap-12 odd:flex-row-reverse odd:bg-slate-300 overflow-hidden rounded-md "'}>
+                  <div className='py-6 w-1/2 flex flex-col items-center justify-between gap-1'>
+                    <div>
+                      <h1
+                        className={'mt-2 mb-3 text-3xl font-semibold tracking-tight text-left lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{topic.title}</h1>
+                      <p className={'text-left text-lg'}>{topic.description}</p>
+                    </div>
+                    <div className='mt-10 flex items-end justify-center'>
+                      <Link
+                        href={topic.link}
+                        className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
+                        <span>Schau eini amoi</span>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className={'relative w-1/2 max-h-80 aspect-square'}>
+                    {topic.mainImage ?
+                        (
+                          <Image
+                            src={urlForImage(topic.mainImage).src}
+                            {...(topic.mainImage.blurDataURL && {
+                              placeholder: 'blur',
+                              blurDataURL: topic.mainImage.blurDataURL
+                            })}
+                            alt={topic.mainImage.alt || 'Thumbnail'}
+                            priority={ false}
+                            className='object-cover transition-all'
+                            fill
+                            sizes='(max-width: 768px) 30vw, 33vw'
+                          />
+                        ) : (
+                      <span
+                        className='absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-gray-200'>
+                <PhotoIcon />
+              </span>
+                      )
+                    }
+                  </div>
+                </div>
+
+              ))}
+            </div>
+          </>
+        )}
+      </Container>
+      <Container>
+
+      </Container>
     </>
-  );
+  )
 }
