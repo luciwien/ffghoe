@@ -7,7 +7,7 @@ export default function SubsitePage({ subsiteContent }) {
 
   return (
     <>
-      <h1 className={'font-normal text-lg lg:text-xl'}>{subsiteContent?.title?.toUpperCase()}</h1>
+      <h1 className={'font-bold text-lg lg:text-xl'}>{subsiteContent?.title?.toUpperCase()}</h1>
       {subsiteContent && <PortableText value={subsiteContent.body} />}
 
       <div className={'font-light text-sm lg:text-sm'}>

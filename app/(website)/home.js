@@ -17,7 +17,7 @@ export default function LandingPage({ landingPage }) {
 
           <div className={'flex flex-col justify-center align-middle h-48'}>
             <h1
-              className={'mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{landingPage.title}</h1>
+              className={'mt-2 mb-3 text-3xl text-center font-semibold tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{landingPage.title}</h1>
             <p className={'text-center text-lg'}>{landingPage.subtitle}</p>
           </div>
         </Container>
@@ -25,7 +25,8 @@ export default function LandingPage({ landingPage }) {
       <Container>
 
         <div className={'lg:max-w-screen-lg max-h-48 mt-12'}>
-          <h1 className={'font-light text-3xl text-center'}>Bibliothek</h1>
+          <h1
+            className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>Bibliothek</h1>
         </div>
 
         {posts && (<>
