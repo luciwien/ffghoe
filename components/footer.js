@@ -40,14 +40,14 @@ export default function Footer(props) {
           </div>
 
         </div>
-        <ThemeSwitch ></ThemeSwitch>
       </div>
       <div className={'mt-4'}>
         <h3 className={'text-lg font-light text-gray-500 dark:text-gray-600'}>Content</h3>
         <ul className='text-sm font-medium '>
-          <li><a href={'/about'} >Über uns</a></li>
+          <li><a href={'/about/mission-statement'} >Über uns</a></li>
           <li><a href={'/bibliothek'} >Bibliothek</a></li>
-          <li><a href={'/events'} >Events</a></li>
+          <li><a href={'/infocorner/begriffe'} >Infocorner</a></li>
+          <li><a href={'/queerfootballheroes/heroes'} >Queer Football Heroes</a></li>
         </ul>
       </div>
       <div className={'mt-4'}>
@@ -58,7 +58,6 @@ export default function Footer(props) {
           <li><a href={'/impressum'} >Impressum & Datenschutz</a></li>
         </ul>
       </div>
-      {/*<ThemeSwitch />*/}
 
     </Container>
   )

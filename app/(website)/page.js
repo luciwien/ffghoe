@@ -1,9 +1,15 @@
 import HomePage from "./home";
-import { getAllPosts } from "@/lib/sanity/client";
+import Contact from "./contact/contact"
+import { getLandingPage, getSettings } from '@/lib/sanity/client'
 
 export default async function IndexPage() {
-  const posts = await getAllPosts();
-  return <HomePage posts={posts} />;
+  const landingPage = await getLandingPage();
+  const settings = await getSettings();
+  return <>
+    <HomePage landingPage={landingPage} />
+    <Contact settings={settings} />
+  </>;
 }
 
 // export const revalidate = 60;
+

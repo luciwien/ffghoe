@@ -1,4 +1,4 @@
-import { apiVersion, dataset, projectId, useCdn } from "./config";
+import { apiVersion, dataset, projectId, useCdn } from './config'
 import {
   postquery,
   limitquery,
@@ -15,14 +15,18 @@ import {
   getAll,
   aboutQuery,
   eventsQuery,
-  searchquery
-} from "./groq";
-import { createClient } from "next-sanity";
+  aboutPagesQuery,
+  qfhPagesQuery,
+  infocornerQuery,
+  infocornerPagesQuery,
+  getSubsiteContentQuery, pathquerySubsite, landingpageQuery,impressumQuery
+} from './groq'
+import { createClient } from 'next-sanity'
 
 if (!projectId) {
   console.error(
-    "The Sanity Project ID is not set. Check your environment variables."
-  );
+    'The Sanity Project ID is not set. Check your environment variables.'
+  )
 }
 
 /**
@@ -30,111 +34,112 @@ if (!projectId) {
  */
 const client = projectId
   ? createClient({ projectId, dataset, apiVersion, useCdn })
-  : null;
+  : null
 
 export const fetcher = async ([query, params]) => {
-  return client ? client.fetch(query, params) : [];
+  return client ? client.fetch(query, params) : []
 };
 
 (async () => {
   if (client) {
-    const data = await client.fetch(getAll);
+    const data = await client.fetch(getAll)
     if (!data || !data.length) {
       console.error(
-        "Sanity returns empty array. Are you sure the dataset is public?"
-      );
+        'Sanity returns empty array. Are you sure the dataset is public?'
+      )
     }
   }
-})();
-
+})()
 export async function getAllPosts() {
   if (client) {
-    return (await client.fetch(postquery)) || [];
+    return (await client.fetch(postquery)) || []
   }
-  return [];
+  return []
 }
 
 export async function getAllEvents() {
   if (client) {
-    return (await client.fetch(eventsQuery)) || [];
+    return (await client.fetch(eventsQuery)) || []
   }
-  return [];
+  return []
 }
 
-
-export async function getAbout() {
-  if (client) {
-    return (await client.fetch(aboutQuery)) || [];
-  }
-  return [];
-}
 
 export async function getSettings() {
   if (client) {
-    return (await client.fetch(configQuery)) || [];
+    return (await client.fetch(configQuery)) || []
   }
-  return [];
+  return []
 }
 
 export async function getPostBySlug(slug) {
   if (client) {
-    return (await client.fetch(singlequery, { slug })) || {};
+    return (await client.fetch(singlequery, { slug })) || {}
   }
-  return {};
+  return {}
 }
 
 export async function getAllPostsSlugs() {
   if (client) {
-    const slugs = (await client.fetch(pathquery)) || [];
-    return slugs.map(slug => ({ slug }));
+    const slugs = (await client.fetch(pathquery)) || []
+    return slugs.map(slug => ({ slug }))
   }
-  return [];
+  return []
 }
+
+export async function getAllSubsiteSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(pathquerySubsite)) || []
+    return slugs.map(slug => ({ slug }))
+  }
+  return []
+}
+
 // Author
 export async function getAllAuthorsSlugs() {
   if (client) {
-    const slugs = (await client.fetch(authorsquery)) || [];
-    return slugs.map(slug => ({ author: slug }));
+    const slugs = (await client.fetch(authorsquery)) || []
+    return slugs.map(slug => ({ author: slug }))
   }
-  return [];
+  return []
 }
 
 export async function getAuthorPostsBySlug(slug) {
   if (client) {
-    return (await client.fetch(postsbyauthorquery, { slug })) || {};
+    return (await client.fetch(postsbyauthorquery, { slug })) || {}
   }
-  return {};
+  return {}
 }
 
 export async function getAllAuthors() {
   if (client) {
-    return (await client.fetch(allauthorsquery)) || [];
+    return (await client.fetch(allauthorsquery)) || []
   }
-  return [];
+  return []
 }
 
 // Category
 
 export async function getAllCategories() {
   if (client) {
-    const slugs = (await client.fetch(catpathquery)) || [];
-    return slugs.map(slug => ({ category: slug }));
+    const slugs = (await client.fetch(catpathquery)) || []
+    return slugs.map(slug => ({ category: slug }))
   }
-  return [];
+  return []
 }
 
 export async function getPostsByCategory(slug) {
   if (client) {
-    return (await client.fetch(postsbycatquery, { slug })) || {};
+    return (await client.fetch(postsbycatquery, { slug })) || {}
   }
-  return {};
+  return {}
 }
 
 export async function getTopCategories() {
   if (client) {
-    return (await client.fetch(catquery)) || [];
+    return (await client.fetch(catquery)) || []
   }
-  return [];
+  return []
 }
 
 export async function getPaginatedPosts(limit) {
@@ -144,7 +149,66 @@ export async function getPaginatedPosts(limit) {
         pageIndex: 0,
         limit: limit
       })) || {}
-    );
+    )
   }
-  return {};
+  return {}
+}
+
+// About
+
+export async function getAbout() {
+  if (client) {
+    return (await client.fetch(aboutQuery)) || []
+  }
+  return []
+}
+
+export async function getAboutPages() {
+  if (client) {
+    return (await client.fetch(aboutPagesQuery)) || []
+  }
+  return []
+}
+
+
+// QFH
+
+export async function getQfhPages() {
+  if (client) {
+    return (await client.fetch(qfhPagesQuery)) || []
+  }
+  return []
+}
+
+
+export async function getInfocornerPages() {
+  if (client) {
+    return (await client.fetch(infocornerPagesQuery)) || []
+  }
+  return []
+}
+
+// Subsites
+
+
+export async function getSubsiteBySlug(slug) {
+  if (client) {
+    return (await client.fetch(getSubsiteContentQuery, { slug })) || {}
+  }
+  return {}
+}
+
+
+export async function getLandingPage() {
+  if (client) {
+    return (await client.fetch(landingpageQuery)) || []
+  }
+  return []
+}
+
+export async function getImpressum() {
+  if (client) {
+    return (await client.fetch(impressumQuery)) || []
+  }
+  return []
 }

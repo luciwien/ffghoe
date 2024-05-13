@@ -11,6 +11,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 import { fetcher } from "@/lib/sanity/client";
+import { Suspense } from 'react'
+
 
 export default function Post({ posts: initialposts }) {
   const router = useRouter();
@@ -81,7 +83,9 @@ export default function Post({ posts: initialposts }) {
           <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
             {new Array(6).fill().map((item, index) => (
               <div key={index}>
-                <SkeletonImg />
+                  <SkeletonImg />
+                
+
               </div>
             ))}
           </div>
