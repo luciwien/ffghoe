@@ -13,7 +13,7 @@ console.log(
              style={{ left: 50 + '%' }}></div>
         {abschnitte.items.map((item, i) => {
           return (
-            i % 2 === 0 ?
+            item.topic === "Fußball"?
               <LeftTimelineItem item={item} />:
               <RightTimelineItem item={item} />
 
