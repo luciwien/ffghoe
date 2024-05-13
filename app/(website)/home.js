@@ -9,9 +9,6 @@ import { PhotoIcon } from "@heroicons/react/24/outline";
 export default function LandingPage({ landingPage }) {
   const posts = landingPage.articles
   const topics = landingPage.subsites
-  console.log(landingPage)
-  let even = true
-
 
   return (<>
       <div className={'bg-gradient-to-t from-indigo-200 ...'}>
@@ -28,7 +25,7 @@ export default function LandingPage({ landingPage }) {
       <Container>
 
         <div className={'lg:max-w-screen-lg max-h-48 mt-12'}>
-          <h1 className={'font-light text-3xl text-center'}>Blog Posts</h1>
+          <h1 className={'font-light text-3xl text-center'}>Bibliothek</h1>
         </div>
 
         {posts && (<>
@@ -41,7 +38,7 @@ export default function LandingPage({ landingPage }) {
               <Link
                 href='/bibliothek'
                 className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
-                <span>View all Posts</span>
+                <span>Mehr in unserer Bibliothek</span>
               </Link>
             </div>
           </>
@@ -51,8 +48,8 @@ export default function LandingPage({ landingPage }) {
         {topics && (<>
             <div className='grid gap-10 md:grid-cols-1 lg:gap-10 xl:grid-cols-1 '>
               {topics.map(topic => (
-                <div key={topic.title} className={' lg:mt-24  flex flex-row gap-12 odd:flex-row-reverse odd:bg-slate-300 overflow-hidden rounded-md "'}>
-                  <div className='py-6 w-1/2 flex flex-col items-center justify-between gap-1'>
+                <div key={topic.title} className={' lg:mt-12  flex flex-col-reverse lg:flex-row gap-12 lg:odd:flex-row-reverse  overflow-hidden rounded-md "'}>
+                  <div className='py-6 w-full lg:w-1/2 flex flex-col items-center justify-between gap-1'>
                     <div>
                       <h1
                         className={'mt-2 mb-3 text-3xl font-semibold tracking-tight text-left lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{topic.title}</h1>
@@ -62,11 +59,11 @@ export default function LandingPage({ landingPage }) {
                       <Link
                         href={topic.link}
                         className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
-                        <span>Schau eini amoi</span>
+                        <span>Erfahre mehr!</span>
                       </Link>
                     </div>
                   </div>
-                  <div className={'relative w-1/2 max-h-80 aspect-square'}>
+                  <div className={'relative w-full lg:w-1/2 max-h-80 aspect-square'}>
                     {topic.mainImage ?
                         (
                           <Image

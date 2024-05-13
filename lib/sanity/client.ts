@@ -19,7 +19,7 @@ import {
   qfhPagesQuery,
   infocornerQuery,
   infocornerPagesQuery,
-  getSubsiteContentQuery, pathquerySubsite, landingpageQuery
+  getSubsiteContentQuery, pathquerySubsite, landingpageQuery,impressumQuery
 } from './groq'
 import { createClient } from 'next-sanity'
 
@@ -202,6 +202,13 @@ export async function getSubsiteBySlug(slug) {
 export async function getLandingPage() {
   if (client) {
     return (await client.fetch(landingpageQuery)) || []
+  }
+  return []
+}
+
+export async function getImpressum() {
+  if (client) {
+    return (await client.fetch(impressumQuery)) || []
   }
   return []
 }
