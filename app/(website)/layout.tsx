@@ -55,6 +55,8 @@ export default async function Layout({ children, params }) {
   const infocornerPages = await getInfocornerPages();
   return (
 
+    <Countdown></Countdown>
+  /*
     <>
       <Navbar settings={settings} aboutPages={aboutPages.subsites} qfhPages={qfhPages.subsites} infocornerPages={infocornerPages.subsites}/>
 
@@ -64,6 +66,8 @@ export default async function Layout({ children, params }) {
 
       <Analytics />
     </>
+    */
+
   );
 }
 // enable revalidate for all pages in this layout
