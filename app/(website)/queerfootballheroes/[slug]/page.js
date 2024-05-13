@@ -1,4 +1,4 @@
-import {getSubsiteBySlug, getAllSubsiteSlugs, getQfhPages } from '@/lib/sanity/client'
+import {getSubsiteBySlug, getAllSubsiteSlugs, getQfhPages,getHeroes } from '@/lib/sanity/client'
 import QfhPage from "./default";
 
 export async function generateStaticParams() {
@@ -12,8 +12,10 @@ export async function generateMetadata({ params }) {
 
 export default async function InfocornerDefault({ params }) {
   const qfhPages = await getQfhPages();
+  const heroes = await getHeroes();
   const qfh = await getSubsiteBySlug(params.slug);
-  return <QfhPage qfhPages={qfhPages} qfh={qfh}/>;
+  console.log(heroes)
+  return <QfhPage qfhPages={qfhPages} qfh={qfh} heroes={heroes}/>;
 }
 
 // export const revalidate = 60;

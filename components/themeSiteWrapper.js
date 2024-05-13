@@ -29,7 +29,7 @@ export default function ThemeSiteWrapper({ themenListe, siteContent, slug, slugp
           })}
           <div></div>
         </div>
-        <div className={'flex flex-col pl-12 gap-6 pb-16  lg:w-3/4 mt-4 lg:-mt-2 '}>
+        <div className={'flex flex-col lg:pl-12 gap-6 pb-16  lg:w-3/4 mt-4 lg:-mt-2 '}>
           {siteContent}
         </div>
       </div>
