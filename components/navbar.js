@@ -40,10 +40,10 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
     <Container>
       <nav className={"md:flex md:justify-between"}>
         <Disclosure>
-          {({ open }) => (
+          {({ open,close }) => (
             <>
               <div className='flex items-start justify-between md:w-auto'>
-                <Link href='/' className='w-28 dark:hidden'>
+                <Link href='/' className='w-28 dark:hidden'  onClick={close}>
                   {settings.logo ? (
                     <Image
                       {...urlForImage(settings.logo)}
@@ -57,7 +57,7 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                       </span>
                   )}
                 </Link>
-                <Link href='/' className='hidden w-28 dark:block'>
+                <Link href='/' className='hidden w-28 dark:block' >
                   {settings.logoalt ? (
                     <Image
                       {...urlForImage(settings.logoalt)}
@@ -111,7 +111,8 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                           key={`${item.label}${index}`}
                           className='px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400'
                           target={item.external ? '_blank' : ''}
-                          rel={item.external ? 'noopener' : ''}>
+                          rel={item.external ? 'noopener' : ''}
+                          >
                           {item.label}
                         </Link>
                       )}
@@ -137,7 +138,8 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                           key={`${item.label}${index}`}
                           className='w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400'
                           target={item.external ? '_blank' : ''}
-                          rel={item.external ? 'noopener' : ''}>
+                          rel={item.external ? 'noopener' : ''}
+                          onClick={close}>
                           {item.label}
                         </Link>
                       )}
