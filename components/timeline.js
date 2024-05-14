@@ -1,8 +1,5 @@
 export default function Timeline({ abschnitte }) {
 
-console.log(
-  abschnitte
-)
   //abschnitte.map
   //Topic - Jahr
   // Title

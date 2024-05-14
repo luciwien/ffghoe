@@ -14,7 +14,6 @@ export default async function InfocornerDefault({ params }) {
   const qfhPages = await getQfhPages();
   const heroes = await getHeroes();
   const qfh = await getSubsiteBySlug(params.slug);
-  console.log(heroes)
   return <QfhPage qfhPages={qfhPages} qfh={qfh} heroes={heroes}/>;
 }
 
