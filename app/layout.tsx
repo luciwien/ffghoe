@@ -24,7 +24,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cx(inter.variable, lora.variable)}>
-      <body className="antialiased text-gray-800 dark:bg-black dark:text-gray-400" style={{backgroundImage: `url(${bg.src})`,backgroundSize: ""  }} >
+      <body className="antialiased text-gray-800 dark:bg-black dark:text-gray-400 bg-white/90" style={{backgroundImage: `url(${bg.src})`,backgroundSize: "cover"  }} >
         <Providers>{children}</Providers>
       </body>
     </html>

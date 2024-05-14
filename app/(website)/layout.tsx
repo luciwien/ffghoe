@@ -54,7 +54,7 @@ export default async function Layout({ children, params }) {
   const qfhPages = await getQfhPages()
   const infocornerPages = await getInfocornerPages()
   return (
-    <>
+    <div className={"bg-white/50"}>
       <Navbar settings={settings} aboutPages={aboutPages.subsites} qfhPages={qfhPages.subsites}
               infocornerPages={infocornerPages.subsites} />
 
@@ -63,7 +63,7 @@ export default async function Layout({ children, params }) {
       <Footer {...settings} />
 
       <Analytics />
-    </>
+    </div>
 
 
   )

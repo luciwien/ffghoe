@@ -10,8 +10,8 @@ export default function ThemeSiteWrapper({ themenListe, siteContent, slug, slugp
   return (
 
 
-      <div className={'max-w-screen-lg m-auto flex flex-col lg:flex-row px-2 py-4'}>
-        <div className={'mt-4 flex flex-col w-full divide-black divide-y-2 lg:w-1/4 lg:pr-5'}>
+      <div className={'max-w-screen-lg m-auto flex flex-col lg:flex-row px-2 py-4  '}>
+        <div className={'mt-4 flex flex-col w-full divide-black divide-y-2 lg:w-1/4 lg:pr-5 '}>
           <div></div>
           {themenListe?.map((currentThema, index) => {
             return (
@@ -29,7 +29,7 @@ export default function ThemeSiteWrapper({ themenListe, siteContent, slug, slugp
           })}
           <div></div>
         </div>
-        <div className={'flex flex-col lg:pl-12 gap-6 pb-16  lg:w-3/4 mt-4 lg:-mt-2 '}>
+        <div className={'flex flex-col lg:ml-12 gap-6 px-6 py-4  lg:w-3/4 mt-4 lg:-mt-2'}>
           {siteContent}
         </div>
       </div>
