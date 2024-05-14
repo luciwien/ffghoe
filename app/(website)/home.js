@@ -11,11 +11,9 @@ export default function LandingPage({ landingPage }) {
   const topics = landingPage.subsites
 
   return (<>
-      <div className={'bg-gradient-to-t from-indigo-200 ...'}>
+      <div >
         <Container>
-
-
-          <div className={'flex flex-col justify-center align-middle h-48'}>
+          <div className={'flex flex-col justify-evenly align-around h-64'}>
             <h1
               className={'mt-2 mb-3 text-3xl text-center font-semibold tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{landingPage.title}</h1>
             <p className={'text-center text-lg'}>{landingPage.subtitle}</p>
@@ -24,7 +22,7 @@ export default function LandingPage({ landingPage }) {
       </div>
       <Container>
 
-        <div className={'lg:max-w-screen-lg max-h-48 mt-12'}>
+        <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>
           <h1
             className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>Bibliothek</h1>
         </div>
