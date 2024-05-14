@@ -16,7 +16,7 @@ export default function Footer(props) {
           {' '}
           Made by{' '}
           <a
-            href='https://lucasprabant.com'
+            href='https://www.lucasprabant.com'
             rel='noopener'
             target='_blank'>
             Lucas Prabant
@@ -44,7 +44,7 @@ export default function Footer(props) {
       <div className={'mt-4'}>
         <h3 className={'text-lg font-light text-gray-500 dark:text-gray-600'}>Content</h3>
         <ul className='text-sm font-medium '>
-          <li><a href={'/about/mission-statement'} >Über uns</a></li>
+          <li><a href={'/about/unsere-statuten'} >Über uns</a></li>
           <li><a href={'/bibliothek'} >Bibliothek</a></li>
           <li><a href={'/infocorner/begriffe'} >Infocorner</a></li>
           <li><a href={'/queerfootballheroes/heroes'} >Queer Football Heroes</a></li>
@@ -54,11 +54,10 @@ export default function Footer(props) {
         <h3 className={'text-lg font-light text-gray-500 dark:text-gray-600'}>Legal & Other</h3>
         <ul className='text-sm font-medium '>
           <li><a href={'/contact'} >Kontakt</a></li>
-          <li><a href={'/antrag'} >Mitglied Werden</a></li>
+          <li><a href={'/about/mitglied-werden'} >Mitglied Werden</a></li>
           <li><a href={'/impressum'} >Impressum & Datenschutz</a></li>
         </ul>
       </div>
-
     </Container>
   )
 }
