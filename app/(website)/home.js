@@ -13,7 +13,7 @@ export default function LandingPage({ landingPage }) {
   return (<>
       <div >
         <Container>
-          <div className={'flex flex-col justify-evenly align-around h-64'}>
+          <div className={'flex flex-col justify-evenly align-around lg:h-64'}>
             <h1
               className={'mt-2 mb-3 text-3xl text-center font-semibold tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{landingPage.title}</h1>
             <p className={'text-center text-lg'}>{landingPage.subtitle}</p>
