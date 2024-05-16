@@ -7,7 +7,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  console.log(params);
+
   const post = await getPostBySlug(params.slug);
   return { title: post.title };
 }
