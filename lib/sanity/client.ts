@@ -19,7 +19,7 @@ import {
   qfhPagesQuery,
   infocornerQuery,
   infocornerPagesQuery,
-  getSubsiteContentQuery, pathquerySubsite, landingpageQuery,impressumQuery
+  getSubsiteContentQuery, pathquerySubsite, landingpageQuery,impressumQuery,heroesQuery
 } from './groq'
 import { createClient } from 'next-sanity'
 
@@ -176,6 +176,12 @@ export async function getAboutPages() {
 export async function getQfhPages() {
   if (client) {
     return (await client.fetch(qfhPagesQuery)) || []
+  }
+  return []
+}
+export async function getHeroes() {
+  if (client) {
+    return (await client.fetch(heroesQuery)) || []
   }
   return []
 }

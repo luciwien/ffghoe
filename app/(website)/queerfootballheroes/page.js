@@ -1,7 +1,5 @@
-import Queerfootballheroes from "./queerfootballheroes";
-
-export default async function QueerfootballheroesPage() {
-  return <Queerfootballheroes />;
+import { redirect } from 'next/navigation';
+export default async function QueerfootballheroesPage({ params }) {
+  redirect('/queerfootballheroes/heroes');
+  // ...
 }
-
-// export const revalidate = 60;
