@@ -20,29 +20,29 @@ export default function LandingPage({ landingPage }) {
           </div>
         </Container>
       </div>
-      <Container>
+      {/*<Container>*/}
 
-        <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>
-          <h1
-            className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>Bibliothek</h1>
-        </div>
+      {/*  <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>*/}
+      {/*    <h1*/}
+      {/*      className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>Bibliothek</h1>*/}
+      {/*  </div>*/}
 
-        {posts && (<>
-            <div className='mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 '>
-              {posts.map(post => (
-                <PostList key={post._id} post={post} aspect='square' />
-              ))}
-            </div>
-            <div className='mt-10 flex justify-center'>
-              <Link
-                href='/bibliothek'
-                className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
-                <span>Mehr in unserer Bibliothek</span>
-              </Link>
-            </div>
-          </>
-        )}
-      </Container>
+      {/*  {posts && (<>*/}
+      {/*      <div className='mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 '>*/}
+      {/*        {posts.map(post => (*/}
+      {/*          <PostList key={post._id} post={post} aspect='square' />*/}
+      {/*        ))}*/}
+      {/*      </div>*/}
+      {/*      <div className='mt-10 flex justify-center'>*/}
+      {/*        <Link*/}
+      {/*          href='/bibliothek'*/}
+      {/*          className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>*/}
+      {/*          <span>Mehr in unserer Bibliothek</span>*/}
+      {/*        </Link>*/}
+      {/*      </div>*/}
+      {/*    </>*/}
+      {/*  )}*/}
+      {/*</Container>*/}
       <Container>
         {topics && (<>
             <div className='grid gap-10 md:grid-cols-1 lg:gap-10 xl:grid-cols-1 '>
