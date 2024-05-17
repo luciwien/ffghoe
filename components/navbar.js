@@ -16,10 +16,10 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
       href: '/about',
       children: aboutPages?.map(page => ({ title: page.title, path: "/about/" + page.slug.current }))
     },
-    {
-      label: 'Bibliothek',
-      href: '/bibliothek'
-    },
+    // {
+    //   label: 'Bibliothek',
+    //   href: '/bibliothek'
+    // },
     {
       label: 'Infocorner',
       href: '/infocorner',
