@@ -15,7 +15,7 @@ export default function QfhPage({ qfhPages, qfh, heroes }) {
       <p>Laut ÖFB gibt es ca. 600.000 Menschen, die in Österreich Fußball spielen. Es ist statistisch gesehen (in etwa
         10% der Menschen sind nicht heterosexuell) sehr unwahrscheinlich, dass keiner der männlichen Fußballer schwul
         ist – weder im Breitensport noch im Profibereich.</p>
-      <p>DDie meisten haben Angst, offen zu sich zu stehen. Wir wollen euch zeigen:<strong> Ihr seid gut, so wie ihr seid!</strong> Hier
+      <p>Die meisten haben Angst, offen zu sich zu stehen. Wir wollen euch zeigen:<strong> Ihr seid gut, so wie ihr seid!</strong> Hier
         ein paar prominente Beispiele offen queerer Fußball-Profis:</p>
       <div className='lg:grid lg:grid-cols-2 lg:gap-2'>
         {heroes.map((hero, i) => (<HeroesCard key={i} hero={hero} />))}
