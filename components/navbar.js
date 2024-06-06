@@ -12,14 +12,14 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages }) {
   const menu = [
     {
+      label: 'Blog',
+      href: '/blog'
+    },
+    {
       label: 'Über uns',
       href: '/about',
       children: aboutPages?.map(page => ({ title: page.title, path: "/about/" + page.slug.current }))
     },
-    // {
-    //   label: 'Bibliothek',
-    //   href: '/bibliothek'
-    // },
     {
       label: 'Infocorner',
       href: '/infocorner',

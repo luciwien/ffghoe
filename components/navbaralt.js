@@ -48,7 +48,7 @@ export default function NavbarAlt(props) {
           title: "Search Page",
           path: "/search?q=life"
         },
-        { title: "Archive - Pagination", path: "/bibliothek" },
+        { title: "Archive - Pagination", path: "/blog" },
         {
           title: "Single Post - Default",
           path: "/post/10-simple-practices-that-will-help-you-get-1-better-every-day"

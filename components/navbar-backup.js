@@ -16,8 +16,8 @@ export default function Navbar(props) {
       href: '/about'
     },
     {
-      label: 'Bibliothek',
-      href: '/bibliothek'
+      label: 'Blog',
+      href: '/blog'
     },
     {
       label: 'Events',
