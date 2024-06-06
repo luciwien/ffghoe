@@ -66,7 +66,7 @@ export default function Post({ posts: initialposts }) {
     <>
       <Container>
         <h1 className="text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug">
-          Bibliothek
+          Blog
         </h1>
         <div className="text-center">
 
