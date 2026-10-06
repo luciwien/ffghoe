@@ -44,7 +44,7 @@
     "sanity-plugin-asset-source-unsplash": "^7.0.26",
     "styled-components": "^6.5.3",
     "swr": "^2.5.1",
-    "typescript": "^7.0.2"
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@types/node": "26.6.4",
