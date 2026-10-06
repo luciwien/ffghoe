@@ -10,7 +10,7 @@
     "sanity-export": "sanity dataset export production lib/sanity/data/production.tar.gz",
     "lint": "next lint"
   },
-  "dependencies": {
+ "dependencies": {
     "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
     "@portabletext/react": "^8.0.1",
@@ -50,7 +50,7 @@
     "@types/node": "26.6.4",
     "@types/react": "19.3.0",
     "autoprefixer": "^10.6.1",
-    "eslint": "^10.12.0",
+    "eslint": "^9.16.0",
     "eslint-config-next": "^16.3.8",
     "eslint-config-sanity": "^7.1.4",
     "postcss": "^8.5.28",
