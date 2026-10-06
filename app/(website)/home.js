@@ -20,8 +20,14 @@ console.log(events[0])
             <h1
               className={'mt-2 mb-3 text-3xl text-center font-semibold tracking-tight lg:leading-snug text-brand-primary lg:text-4xl '}>{landingPage.title}</h1>
             <p className={'text-center text-lg'}>{landingPage.subtitle}</p>
+            <div>
+            <Link href="mitglied-werden"
+           className=' mt-5 flex justify-around md:hidden  px-5 py-2 text-sm rounded-md font-bold bg-pink-800 text-white hover:bg-pink-600' >
+                          Mitglied werden
+                        </Link> 
+            </div>
           </div>
-          
+           
         </Container>
       </div>
       <Container>
@@ -48,6 +54,11 @@ console.log(events[0])
         )}
       </Container>
        <Container>
+
+        <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>
+          <h1
+            className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl '}>Termine</h1>
+        </div>
         <div className={'flex flex-col w-full divide-y'}>
           {events && events.map( (event,index) => (
             <EventRow key={index} event={event} />
