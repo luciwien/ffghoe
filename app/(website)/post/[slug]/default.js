@@ -8,6 +8,7 @@ import { parseISO, format } from 'date-fns'
 
 import CategoryLabel from '@/components/blog/category'
 import AuthorCard from '@/components/blog/authorCard'
+import GalleryDispatcher from '@/components/gallery'
 
 export default function Post(props) {
   const { loading, post } = props
@@ -107,6 +108,9 @@ export default function Post(props) {
         <article className='mx-auto max-w-screen-md '>
           <div className='prose mx-auto my-3 prose-a:text-blue-600'>
             {post.body && <PortableText value={post.body} />}
+          </div>
+          <div className='prose mx-auto my-3 prose-a:text-blue-600'>
+            {post.gallery && <GalleryDispatcher data={post.gallery}/>}
           </div>
           <div className='mb-7 mt-7 flex justify-center'>
             <Link
