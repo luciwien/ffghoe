@@ -12,9 +12,9 @@ export default function MitgliedWerden({ mitgliedWerden }) {
       </div>
       <div className="flex justify-around mx-auto max-w-screen-md">
         <a
-          href={mitgliedWerden.cta}
+          href={mitgliedWerden.ctaUrl}
           className="mx-w-full rounded-md justify-around  bg-pink-800 px-7 py-4 font-semibold text-white transition-colors hover:bg-pink-600 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 ">
-          Formular
+          {mitgliedWerden.ctaText}
         </a>
       </div>
     </Container>
