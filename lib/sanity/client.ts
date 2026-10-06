@@ -18,6 +18,7 @@ import {
   aboutPagesQuery,
   qfhPagesQuery,
   infocornerQuery,
+  mitgliedWerdenQuery,
   infocornerPagesQuery,
   getSubsiteContentQuery, pathquerySubsite, landingpageQuery,impressumQuery,heroesQuery
 } from './groq'
@@ -73,8 +74,9 @@ export async function getSettings() {
 }
 
 export async function getPostBySlug(slug) {
+  
   if (client) {
-    return (await client.fetch(singlequery, { slug })) || {}
+    return (await client.fetch(singlequery, { slug: slug })) || {}
   }
   return {}
 }
@@ -82,6 +84,9 @@ export async function getPostBySlug(slug) {
 export async function getAllPostsSlugs() {
   if (client) {
     const slugs = (await client.fetch(pathquery)) || []
+    if(!slugs){
+      return;
+    }
     return slugs.map(slug => ({ slug }))
   }
   return []
@@ -99,6 +104,7 @@ export async function getAllSubsiteSlugs() {
 export async function getAllAuthorsSlugs() {
   if (client) {
     const slugs = (await client.fetch(authorsquery)) || []
+    if(!slugs){return;}
     return slugs.map(slug => ({ author: slug }))
   }
   return []
@@ -123,6 +129,7 @@ export async function getAllAuthors() {
 export async function getAllCategories() {
   if (client) {
     const slugs = (await client.fetch(catpathquery)) || []
+    if(!slugs){return;}
     return slugs.map(slug => ({ category: slug }))
   }
   return []
@@ -215,6 +222,13 @@ export async function getLandingPage() {
 export async function getImpressum() {
   if (client) {
     return (await client.fetch(impressumQuery)) || []
+  }
+  return []
+}
+
+export async function getMitgliedWerden() {
+  if (client) {
+    return (await client.fetch(mitgliedWerdenQuery)) || []
   }
   return []
 }

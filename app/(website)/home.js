@@ -15,7 +15,7 @@ export default function LandingPage({ landingPage }) {
         <Container>
           <div className={'flex flex-col justify-evenly align-around lg:h-64'}>
             <h1
-              className={'mt-2 mb-3 text-3xl text-center font-semibold tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{landingPage.title}</h1>
+              className={'mt-2 mb-3 text-3xl text-center font-semibold tracking-tight lg:leading-snug text-brand-primary lg:text-4xl '}>{landingPage.title}</h1>
             <p className={'text-center text-lg'}>{landingPage.subtitle}</p>
           </div>
         </Container>
@@ -24,7 +24,7 @@ export default function LandingPage({ landingPage }) {
 
         <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>
           <h1
-            className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>Blog</h1>
+            className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl '}>Blog</h1>
         </div>
 
         {posts && (<>
@@ -36,7 +36,7 @@ export default function LandingPage({ landingPage }) {
             <div className='mt-10 flex justify-center'>
               <Link
                 href='/blog'
-                className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
+                className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 '>
                 <span>Mehr in unserem Blog</span>
               </Link>
             </div>
@@ -51,13 +51,13 @@ export default function LandingPage({ landingPage }) {
                   <div className='py-6 lg:py-0 w-full lg:w-1/2 flex flex-col items-center justify-between gap-1'>
                     <div>
                       <h1
-                        className={'mt-2 mb-3 text-3xl font-semibold tracking-tight text-left lg:leading-snug text-brand-primary lg:text-4xl dark:text-white'}>{topic.title}</h1>
+                        className={'mt-2 mb-3 text-3xl font-semibold tracking-tight text-left lg:leading-snug text-brand-primary lg:text-4xl '}>{topic.title}</h1>
                       <p className={'text-left text-lg'}>{topic.description}</p>
                     </div>
                     <div className='mt-10 flex items-end justify-center'>
                       <Link
                         href={topic.link}
-                        className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300'>
+                        className='relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 '>
                         <span>Erfahre mehr!</span>
                       </Link>
                     </div>

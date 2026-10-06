@@ -7,13 +7,15 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
+  const {slug} = await params;
 
-  const post = await getPostBySlug(params.slug);
+  const post = await getPostBySlug(slug);
   return { title: post.title };
 }
 
 export default async function PostDefault({ params }) {
-  const post = await getPostBySlug(params.slug);
+   const {slug} = await params;
+  const post = await getPostBySlug(slug);
   return <PostPage post={post} />;
 }
 

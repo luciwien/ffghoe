@@ -3,7 +3,22 @@ import Footer from '@/components/footer'
 import { urlForImage } from '@/lib/sanity/image'
 import Navbar from '@/components/navbar'
 import { Analytics } from '@vercel/analytics/react'
-import Countdown from '@/components/countdown'
+import "@/styles/tailwind.css";
+import { Providers } from "./providers";
+import { cx } from "@/utils/all";
+import { Inter, Lora } from "next/font/google";
+import bg from '@/public/bg.png'
+import "@/styles/tailwind.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter"
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora"
+});
 
 export async function sharedMetaData(params) {
   const settings = await getSettings()
@@ -51,21 +66,26 @@ export async function generateMetadata({ params }) {
 export default async function Layout({ children, params }) {
   const settings = await getSettings()
   const aboutPages = await getAboutPages()
-  const qfhPages = await getQfhPages()
   const infocornerPages = await getInfocornerPages()
-  return (
-    <div className={"bg-white/50"}>
-      <Navbar settings={settings} aboutPages={aboutPages.subsites} qfhPages={qfhPages.subsites}
-              infocornerPages={infocornerPages.subsites} />
+  return (<html
+      lang="en"
+      suppressHydrationWarning
+      className={cx(inter.variable, lora.variable)}>
+      <body className="antialiased text-gray-800 bg-white/90" style={{backgroundImage: `url(${bg.src})`,backgroundSize: "cover"  }} >
+        
+          <div className={"bg-white"}>
+            <Navbar settings={settings} aboutPages={aboutPages.subsites}
+                    infocornerPages={infocornerPages.subsites} />
 
-      <div>{children}</div>
+            <div>{children}</div>
 
-      <Footer {...settings} />
+            <Footer {...settings} />
 
-      <Analytics />
-    </div>
-
-
+            <Analytics />
+          </div>
+        
+      </body>
+    </html>
   )
 }
 // enable revalidate for all pages in this layout

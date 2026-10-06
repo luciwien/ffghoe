@@ -6,14 +6,16 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const subsite = await getSubsiteBySlug(params.slug);
+  const {slug} = await params;
+  const subsite = await getSubsiteBySlug(slug);
   return { title: subsite.title };
 }
 
 export default async function InfocornerDefault({ params }) {
+  const {slug} = await params;
   const qfhPages = await getQfhPages();
   const heroes = await getHeroes();
-  const qfh = await getSubsiteBySlug(params.slug);
+  const qfh = await getSubsiteBySlug(slug);
   return <QfhPage qfhPages={qfhPages} qfh={qfh} heroes={heroes}/>;
 }
 

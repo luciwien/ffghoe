@@ -27,7 +27,7 @@ export default function PostAlt({
         )}>
         <div
           className={cx(
-            "relative overflow-hidden transition-all bg-gray-100 rounded-md dark:bg-gray-800",
+            "relative overflow-hidden transition-all bg-gray-100 rounded-md ",
             aspect === "landscape" ? "aspect-video" : "aspect-square"
           )}>
           <Link href={`/post/minimal/${post.slug.current}`}>
@@ -59,7 +59,7 @@ export default function PostAlt({
           )}>
           <div
             className={cx(
-              "flex items-center space-x-3 text-gray-500 dark:text-gray-400"
+              "flex items-center space-x-3 text-gray-500 "
             )}>
             <time
               className="text-sm"
@@ -73,18 +73,18 @@ export default function PostAlt({
 
           <h2
             className={cx(
-              "mt-2 text-xl font-semibold tracking-normal line-clamp-2 text-brand-primary dark:text-white",
+              "mt-2 text-xl font-semibold tracking-normal line-clamp-2 text-brand-primary ",
               featured ? "lg:text-3xl" : "lg:text-2xl"
             )}>
             <Link href={`/post/minimal/${post.slug.current}`}>
               <span
-                className="bg-gradient-to-r from-black to-black dark:from-white dark:to-white
-        bg-[length:0px_2px]
-        bg-left-bottom
+                className="bg-linear-to-r from-black to-black 
+        bg-position-[0px_2px]
+        bg-bottom-left
         bg-no-repeat
         transition-[background-size]
         duration-500
-        hover:bg-[length:100%_2px] group-hover:bg-[length:100%_2px]">
+        hover:bg-[100%_2px] group-hover:bg-[100%_2px]">
                 {post.title}
               </span>
             </Link>

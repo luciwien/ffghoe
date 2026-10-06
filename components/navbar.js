@@ -1,7 +1,7 @@
 'use client'
 
 import { Fragment } from 'react'
-import { Menu, Transition, Disclosure } from '@headlessui/react'
+import { Menu, MenuButton, MenuItem, MenuItems, Transition, Disclosure, DisclosurePanel, DisclosureButton } from '@headlessui/react'
 import Container from '@/components/container'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -9,7 +9,7 @@ import { urlForImage } from '@/lib/sanity/image'
 import cx from 'clsx'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
-export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages }) {
+export default function Navbar({ settings, aboutPages, infocornerPages }) {
   const menu = [
     {
       label: 'Blog',
@@ -23,17 +23,21 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
     {
       label: 'Infocorner',
       href: '/infocorner',
-      children: infocornerPages?.map(page => ({ title: page.title, path: "/infocorner/" + page.slug.current }))
-    },
-    {
-      label: 'Queer Football Heroes',
-      href: '/queerfootballheroes',
-        children: qfhPages?.map(page => ({ title: page.title, path: "/queerfootballheroes/" + page.slug.current }))
+      children: [
+        { title: 'Queer Football Heroes', path: '/queerfootballheroes' },
+        ...(infocornerPages ?? [])
+          .filter(page => page.slug.current !== 'begriffe')
+          .map(page => ({ title: page.title, path: "/infocorner/" + page.slug.current }))
+      ]
     },
     {
       label: 'Kontakt',
       href: '/contact'
-    }
+    },
+    {
+      label: 'Mitglied werden',
+      href: '/mitglied-werden',
+    },
   ]
 
   return (
@@ -43,7 +47,7 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
           {({ open,close }) => (
             <>
               <div className='flex items-start justify-between md:w-auto'>
-                <Link href='/' className='w-28 dark:hidden'  onClick={close}>
+                <Link href='/' className='w-28'  onClick={close}>
                   {settings.logo ? (
                     <Image
                       {...urlForImage(settings.logo)}
@@ -57,7 +61,7 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                       </span>
                   )}
                 </Link>
-                <Link href='/' className='hidden w-28 dark:block' >
+                <Link href='/' className='hidden w-28' >
                   {settings.logoalt ? (
                     <Image
                       {...urlForImage(settings.logoalt)}
@@ -71,9 +75,9 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                       </span>
                   )}
                 </Link>
-                <Disclosure.Button
+                <DisclosureButton
                   aria-label='Toggle Menu'
-                  className='ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none dark:text-gray-300 md:hidden '>
+                  className='ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-pink-500 focus:outline-none  md:hidden '>
                   <svg
                     className='h-6 w-6 fill-current'
                     xmlns='http://www.w3.org/2000/svg'
@@ -92,24 +96,33 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                       />
                     )}
                   </svg>
-                </Disclosure.Button>
+                </DisclosureButton>
               </div>
               <div className='flex flex-wrap justify-between md:flex-nowrap md:gap-10'>
                 <div
-                  className='order-1 hidden w-full flex-col items-center justify-start md:order-none md:w-auto md:flex md:w-auto md:flex-1 md:flex-row md:justify-end'>
+                  className='order-1 hidden w-full flex-col items-center justify-start md:order-0 md:flex md:w-auto md:flex-1 md:flex-row md:justify-end'>
                   {menu.map((item, index) => (
                     <Fragment key={`${item.label}${index}`}>
                       {item.children && item.children.length > 0 ? (
                         <DropdownMenu
                           menu={item}
                           key={`${item.label}${index}`}
-                          items={item.children}
+                          items={item.children} //className='w-full px-3 py-2 text-sm rounded-md font-bold bg-pink-800 text-white'
                         />
-                      ) : (
+                      ) : ( item.label == "Mitglied werden" ? 
                         <Link
                           href={item.href}
                           key={`${item.label}${index}`}
-                          className='px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400'
+                          className='px-5 py-2 text-sm rounded-md font-bold bg-pink-800 text-white hover:bg-pink-600'
+                          target={item.external ? '_blank' : ''}
+                          rel={item.external ? 'noopener' : ''}
+                          >
+                          {item.label}
+                        </Link> :
+                        <Link
+                          href={item.href}
+                          key={`${item.label}${index}`}
+                          className='px-5 py-2 text-sm font-medium text-gray-600 hover:text-pink-500 '
                           target={item.external ? '_blank' : ''}
                           rel={item.external ? 'noopener' : ''}
                           >
@@ -121,7 +134,7 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                   ))}
                 </div>
               </div>
-              <Disclosure.Panel>
+              <DisclosurePanel>
                 <div className='order-2 -ml-4 mt-4 flex w-full flex-col items-center justify-start md:hidden'>
                   {menu.map((item, index) => (
                     <Fragment key={`${item.label}${index}`}>
@@ -132,11 +145,22 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                           items={item.children}
                           mobile={true}
                         />
-                      ) : (
+                      ) : (item.label == "Mitglied werden" ?
+                        <div className='w-full px-2 py-1'>
+                          <Link
+                          href={item.href}
+                          key={`${item.label}${index}`}
+                          className='w-full px-3 py-2 text-sm rounded-md font-bold bg-pink-800 text-white'
+                          target={item.external ? '_blank' : ''}
+                          rel={item.external ? 'noopener' : ''}
+                          >
+                          {item.label}
+                        </Link>
+                        </div> : 
                         <Link
                           href={item.href}
                           key={`${item.label}${index}`}
-                          className='w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-blue-500 dark:text-gray-400'
+                          className='w-full px-5 py-2 text-sm font-medium text-gray-600 hover:text-pink-500 '
                           target={item.external ? '_blank' : ''}
                           rel={item.external ? 'noopener' : ''}
                           onClick={close}>
@@ -146,7 +170,7 @@ export default function Navbar({ settings, aboutPages, qfhPages, infocornerPages
                     </Fragment>
                   ))}
                 </div>
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
@@ -162,17 +186,17 @@ const DropdownMenu = ({ menu, items, mobile }) => {
       className={cx('relative text-left', mobile && 'w-full')}>
       {({ open }) => (
         <>
-          <Menu.Button
+          <MenuButton
             className={cx(
-              'flex items-center gap-x-1 rounded-md px-5 py-2 text-sm font-medium  outline-none transition-all focus:outline-none focus-visible:text-indigo-500 focus-visible:ring-1 dark:focus-visible:bg-gray-800',
+              'flex items-center gap-x-1 rounded-md px-5 py-2 text-sm font-medium  outline-none transition-all focus:outline-none focus-visible:text-pink-500 focus-visible:ring-1 ',
               open
-                ? 'text-blue-500 hover:text-blue-500'
-                : ' text-gray-600 dark:text-gray-400 ',
-              mobile ? 'w-full px-4 py-2 ' : 'inline-block px-4 py-2'
+                ? 'text-pink-500 hover:text-pink-500'
+                : ' text-gray-600 ',
+              mobile ? 'w-full px-4 py-2 ' : 'px-4 py-2'
             )}>
             <span>{menu.label}</span>
             <ChevronDownIcon className='mt-0.5 h-4 w-4' />
-          </Menu.Button>
+          </MenuButton>
           <Transition
             as={Fragment}
             enter='lg:transition lg:ease-out lg:duration-100'
@@ -181,34 +205,33 @@ const DropdownMenu = ({ menu, items, mobile }) => {
             leave='lg:transition lg:ease-in lg:duration-75'
             leaveFrom='lg:transform lg:opacity-100 lg:scale-100'
             leaveTo='lg:transform lg:opacity-0 lg:scale-95'>
-            <Menu.Items
+            <MenuItems
               className={cx(
                 'z-20 origin-top-left rounded-md  focus:outline-none  lg:absolute lg:left-0  lg:w-56',
-                !mobile && 'bg-white shadow-lg  dark:bg-gray-800'
+                !mobile && 'bg-white shadow-lg  '
               )}>
               <div className={cx(!mobile && 'py-3')}>
                 {items.map((item, index) => (
-                  <Menu.Item as='div' key={`${item.title}${index}`}>
-                    {({ active,close }) => (
+                  <MenuItem as='div' key={`${item.title}${index}`}>
+                    {({ focus,close }) => ( 
                       <Link
                         href={item?.path ? item.path : '#'}
                         className={cx(
                           'flex items-center space-x-2 px-5 py-2 text-sm lg:space-x-4',
-                          active
-                            ? 'text-blue-500'
-                            : 'text-gray-700 hover:text-blue-500 focus:text-blue-500 dark:text-gray-300'
+                          focus
+                            ? 'text-pink-500'
+                            : 'text-gray-700 hover:text-pink-500 focus:text-pink-500 '
                         )} onClick={close}>
                         <span> {item.title}</span>
                       </Link>
                     )}
-                  </Menu.Item>
+                  </MenuItem>
                 ))}
               </div>
-            </Menu.Items>
+            </MenuItems>
           </Transition>
         </>
       )}
     </Menu>
   )
 }
-

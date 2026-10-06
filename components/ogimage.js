@@ -7,7 +7,7 @@ export default function OgImage({ post }) {
         {post.categories[0].title}
       </span>
 
-      <h1 tw="mt-2 mb-3 text-3xl font-semibold tracking-tight lg:leading-snug lg:text-4xl dark:text-white">
+      <h1 tw="mt-2 mb-3 text-3xl font-semibold tracking-tight lg:leading-snug lg:text-4xl ">
         {post.title}
       </h1>
     </div>

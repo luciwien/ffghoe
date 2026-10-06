@@ -30,7 +30,7 @@ export default function PostList({
         )}>
         <div
           className={cx(
-            " overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800"
+            " overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   "
           )}>
           <Link
             className={cx(
@@ -81,7 +81,7 @@ export default function PostList({
                 fontWeight === "normal"
                   ? "line-clamp-2 font-medium  tracking-normal text-black"
                   : "font-semibold leading-snug tracking-tight",
-                "mt-2    dark:text-white"
+                "mt-2    "
               )}>
               <Link
                 href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
@@ -93,8 +93,7 @@ export default function PostList({
       transition-[background-size]
       duration-500
       hover:bg-[length:100%_3px]
-      group-hover:bg-[length:100%_10px]
-      dark:from-purple-800 dark:to-purple-900">
+      group-hover:bg-[length:100%_10px]">
                   {post.title}
                 </span>
               </Link>
@@ -102,7 +101,7 @@ export default function PostList({
 
             <div className="hidden">
               {post.excerpt && (
-                <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
+                <p className="mt-2 line-clamp-3 text-sm text-gray-500 ">
                   <Link
                     href={`/post/${
                       pathPrefix ? `${pathPrefix}/` : ""
@@ -113,7 +112,7 @@ export default function PostList({
               )}
             </div>
 
-            <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+            <div className="mt-3 flex items-center space-x-3 text-gray-500 ">
                 <div className="flex items-center gap-3">
                   <div className="relative h-5 w-5 flex-shrink-0">
                     {post?.author?.image && (
@@ -130,7 +129,7 @@ export default function PostList({
                     {post?.author?.name}
                   </span>
                 </div>
-              <span className="text-xs text-gray-300 dark:text-gray-600">
+              <span className="text-xs text-gray-300 ">
                 &bull;
               </span>
               <time

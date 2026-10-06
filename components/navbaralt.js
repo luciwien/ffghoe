@@ -75,14 +75,14 @@ export default function NavbarAlt(props) {
   ];
 
   return (
-    <Container className="!py-0">
+    <Container className="py-0">
       <nav className="my-4">
         <Disclosure>
           {({ open }) => (
             <>
               <div className="flex flex-wrap justify-between md:gap-10 lg:flex-nowrap">
                 <div className="flex w-full items-center justify-between lg:w-auto">
-                  <Link href="/" className="w-28 dark:hidden">
+                  <Link href="/" className="w-28">
                     {props.logo ? (
                       <Image
                         src={urlForImage(props.logo)}
@@ -96,7 +96,7 @@ export default function NavbarAlt(props) {
                       </span>
                     )}
                   </Link>
-                  <Link href="/" className="hidden w-28 dark:block">
+                  <Link href="/" className="hidden w-28 ">
                     {props.logoalt ? (
                       <Image
                         src={urlForImage(props.logoalt)}
@@ -112,7 +112,7 @@ export default function NavbarAlt(props) {
                   </Link>
                   <Disclosure.Button
                     aria-label="Toggle Menu"
-                    className="ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none dark:text-gray-300 lg:hidden ">
+                    className="ml-auto rounded-md px-2 py-1 text-gray-500 focus:text-blue-500 focus:outline-none lg:hidden ">
                     <svg
                       className="h-6 w-6 fill-current"
                       xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@ export default function NavbarAlt(props) {
                           <Link
                             href={item.href}
                             key={index + item.label}
-                            className="rounded-full px-5 py-2 font-medium text-gray-600 outline-none ring-blue-100 hover:text-blue-500 focus-visible:text-blue-500 focus-visible:ring-2 dark:text-gray-400"
+                            className="rounded-full px-5 py-2 font-medium text-gray-600 outline-none ring-blue-100 hover:text-blue-500 focus-visible:text-blue-500 focus-visible:ring-2 "
                             target={item.external ? "_blank" : ""}
                             rel={item.external ? "noopener" : ""}>
                             {item.label}
@@ -179,7 +179,7 @@ export default function NavbarAlt(props) {
                         <Link
                           href={item.href}
                           key={index + item.label}
-                          className="rounded-full px-5 py-2 text-sm font-medium text-gray-600 outline-none ring-blue-100 hover:text-blue-500 focus-visible:text-blue-500 focus-visible:ring-2 dark:text-gray-400"
+                          className="rounded-full px-5 py-2 text-sm font-medium text-gray-600 outline-none ring-blue-100 hover:text-blue-500 focus-visible:text-blue-500 focus-visible:ring-2 "
                           target={item.external ? "_blank" : ""}
                           rel={item.external ? "noopener" : ""}>
                           {item.label}
@@ -212,7 +212,7 @@ const DropdownMenu = ({ menu, items, mobile }) => {
               "flex items-center gap-x-1 rounded-full px-5 py-2  font-medium outline-none ring-blue-100 transition-all focus-visible:text-blue-500 focus-visible:ring-2",
               open
                 ? "text-blue-500 hover:text-blue-500"
-                : " text-gray-600 dark:text-gray-400 ",
+                : " text-gray-600 ",
               mobile
                 ? "w-full px-4 py-2 text-sm"
                 : "inline-block px-4 py-2"
@@ -231,7 +231,7 @@ const DropdownMenu = ({ menu, items, mobile }) => {
             <Menu.Items
               className={cx(
                 "z-20 origin-top-left rounded-md  focus:outline-none  lg:absolute lg:left-0  lg:w-56",
-                !mobile && "bg-white shadow-lg  dark:bg-gray-800"
+                !mobile && "bg-white shadow-lg  "
               )}>
               <div className={cx(!mobile && "py-3")}>
                 {items.map((item, index) => (
@@ -243,7 +243,7 @@ const DropdownMenu = ({ menu, items, mobile }) => {
                           "flex items-center space-x-2 px-5 py-2 text-sm lg:space-x-4",
                           active
                             ? "text-blue-500"
-                            : "text-gray-700 hover:text-blue-500 focus:text-blue-500 dark:text-gray-300"
+                            : "text-gray-700 hover:text-blue-500 focus:text-blue-500 "
                         )}>
                         <span> {item.title}</span>
                       </Link>

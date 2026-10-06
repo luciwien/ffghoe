@@ -6,13 +6,15 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const subsite = await getSubsiteBySlug(params.slug);
+  const {slug} = await params;
+  const subsite = await getSubsiteBySlug(slug);
   return { title: subsite.title };
 }
 
 export default async function AboutDefault({ params }) {
   const aboutPages = await getAboutPages();
-  const about = await getSubsiteBySlug(params.slug);
+  const {slug} = await params;
+  const about = await getSubsiteBySlug(slug);
   return <AboutPage aboutPages={aboutPages} about={about}/>;
 }
 

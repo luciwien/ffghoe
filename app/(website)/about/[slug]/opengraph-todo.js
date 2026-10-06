@@ -11,7 +11,8 @@ const InterBold = fetch(
 ).then(res => res.arrayBuffer());
 
 export default async function handler({ params }) {
-  const project = await getProjectBySlug(params.slug);
+  const {slug} = await params;
+  const project = await getProjectBySlug(slug);
 
   const fontData = await InterBold;
   // const [interRegularFont, interBoldFont] = await Promise.all([

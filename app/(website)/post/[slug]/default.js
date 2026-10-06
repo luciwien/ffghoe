@@ -28,20 +28,20 @@ export default function Post(props) {
 
   return (
     <>
-      <Container className='!pt-0'>
+      <Container className='pt-0'>
         <div className='mx-auto max-w-screen-md '>
           <div className='flex justify-center'>
             <CategoryLabel categories={post.categories} />
           </div>
 
           <h1
-            className='text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight dark:text-white lg:text-4xl lg:leading-snug'>
+            className='text-brand-primary mb-3 mt-2 text-center text-3xl font-semibold tracking-tight  lg:text-4xl lg:leading-snug'>
             {post.title}
           </h1>
 
           <div className='mt-3 flex justify-center space-x-3 text-gray-500'>
             <div className='flex items-center gap-3'>
-              <div className='relative h-10 w-10 flex-shrink-0'>
+              <div className='relative h-10 w-10 shrink-0'>
                 {AuthorimageProps && (
                   <Image
                     src={AuthorimageProps.src}
@@ -53,12 +53,12 @@ export default function Post(props) {
                 )}
               </div>
               <div>
-                <p className='text-gray-800 dark:text-gray-400'>
+                <p className='text-gray-800 '>
                   {post.author.name}
                 </p>
                 <div className='flex items-center space-x-2 text-sm'>
                   <time
-                    className='text-gray-500 dark:text-gray-400'
+                    className='text-gray-500 '
                     dateTime={post?.publishedAt || post._createdAt}>
                     {format(
                       parseISO(post?.publishedAt || post._createdAt),
@@ -74,7 +74,7 @@ export default function Post(props) {
             <div className='flex flex-col items-center justify-center mt-6 px-6'>
               <Link
                 href={post.url}
-                className='border-blue-500 border-2 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 '>
+                className='border-blue-500 border-2 rounded-full px-5 py-2 text-sm text-blue-600 '>
                 Original Artikel abrufen →
               </Link>
               <Abgerufen abgerufen={post.abgerufen} />
@@ -99,19 +99,19 @@ export default function Post(props) {
 
         <div className={'mt-2'}>
           <p>{post.mainImage?.description}</p>
-          <p className={'lg:text-left text-sm text-gray-500 dark:text-gray-600'}> {post.mainImage?.copyright}</p>
+          <p className={'lg:text-left text-sm text-gray-500 '}> {post.mainImage?.copyright}</p>
         </div>
       </Container>
 
       <Container>
         <article className='mx-auto max-w-screen-md '>
-          <div className='prose mx-auto my-3 dark:prose-invert prose-a:text-blue-600'>
+          <div className='prose mx-auto my-3 prose-a:text-blue-600'>
             {post.body && <PortableText value={post.body} />}
           </div>
           <div className='mb-7 mt-7 flex justify-center'>
             <Link
               href='/'
-              className='bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 '>
+              className='bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 '>
               ← View all posts
             </Link>
           </div>
@@ -128,7 +128,7 @@ const MainImage = ({ image }) => {
       <Image {...urlForImage(image)} alt={image.alt || 'Thumbnail'} />
       <figcaption className='text-center '>
         {image.caption && (
-          <span className='text-sm italic text-gray-600 dark:text-gray-400'>
+          <span className='text-sm italic text-gray-600 '>
             {image.caption}
           </span>
         )}
@@ -141,10 +141,10 @@ const Abgerufen = ({ abgerufen }) => {
 
   if (abgerufen) {
     return (<p
-      className='mx-auto bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-gray-500 dark:text-white  '>
+      className='mx-auto bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-gray-500 '>
       Status:&nbsp;
       <time
-        className='text-gray-500 dark:text-gray-400'
+        className='text-gray-500 '
         dateTime={abgerufen}>
         {format(
           parseISO(abgerufen),
