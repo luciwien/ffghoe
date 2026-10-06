@@ -1,6 +1,6 @@
 import HomePage from "./home";
 import Contact from "./contact/contact"
-import { getLandingPage, getSettings } from '@/lib/sanity/client'
+import { getAllEvents, getLandingPage, getSettings } from '@/lib/sanity/client'
 
 export default async function IndexPage() {
   const landingPage = await getLandingPage();

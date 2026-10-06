@@ -6,10 +6,13 @@ import Image from 'next/image'
 import { urlForImage } from '@/lib/sanity/image'
 import { PhotoIcon } from "@heroicons/react/24/outline";
 
+import { parseISO, format } from 'date-fns';
+
 export default function LandingPage({ landingPage }) {
   const posts = landingPage.articles
   const topics = landingPage.subsites
-
+  const events = landingPage.events
+console.log(events[0])
   return (<>
       <div >
         <Container>
@@ -44,6 +47,13 @@ export default function LandingPage({ landingPage }) {
           </>
         )}
       </Container>
+       <Container>
+        <div className={'flex flex-col w-full divide-y'}>
+          {events && events.map( (event,index) => (
+            <EventRow key={index} event={event} />
+          ))}
+      </div>
+      </Container>
       <Container>
         {topics && (<>
             <div className='flex'>
@@ -76,4 +86,36 @@ export default function LandingPage({ landingPage }) {
       </Container>
     </>
   )
+}
+
+
+
+export const EventRow = ({event}) => {
+  return (
+    <div className={'flex flex-row items-center border-separate my-2 py-3'} >
+      <div className={'flex flex-col mr-10  font-light text-xl'}>
+          <span className={'text-center'}>
+                {format(
+                  parseISO(
+                    event?.date
+                  ),
+                  'dd.MM'
+                )}
+                </span>
+        <span className={'text-center'}>
+                {format(
+                  parseISO(
+                    event?.date
+                  ),
+                  'yyyy'
+                )}
+                </span>
+      </div>
+      <div className={'flex flex-col items-stretch flex-grow'}>
+        <h2 className={'text-2xl font-light'}>{event.title}</h2>
+        <p className={'text-sm font-light'}>{event.description}</p>
+      </div>
+    </div>
+  )
+
 }
