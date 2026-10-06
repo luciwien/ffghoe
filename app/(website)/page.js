@@ -7,7 +7,6 @@ export default async function IndexPage() {
   const settings = await getSettings();
   return <>
     <HomePage landingPage={landingPage} />
-    <Contact settings={settings} />
   </>;
 }
 
