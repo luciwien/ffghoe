@@ -79,12 +79,12 @@ export default function PostAlt({
             <Link href={`/post/minimal/${post.slug.current}`}>
               <span
                 className="bg-linear-to-r from-black to-black 
-        bg-position-[0px_2px]
+        bg-position-bottom-left
         bg-bottom-left
         bg-no-repeat
         transition-[background-size]
         duration-500
-        hover:bg-[100%_2px] group-hover:bg-[100%_2px]">
+        hover:bg-position-[100%_2px] group-hover:bg-position-[100%_2px]">
                 {post.title}
               </span>
             </Link>

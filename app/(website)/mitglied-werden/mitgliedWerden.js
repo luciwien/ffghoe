@@ -10,7 +10,7 @@ export default function MitgliedWerden({ mitgliedWerden }) {
         </h1>
         <PortableText value={mitgliedWerden.body} />
       </div>
-      <div className="flex justify-around mx-auto max-w-screen-md">
+      <div className="flex justify-around mx-auto max-w-3xl">
         <a
           href={mitgliedWerden.ctaUrl}
           className="mx-w-full rounded-md justify-around  bg-pink-800 px-7 py-4 font-semibold text-white transition-colors hover:bg-pink-600 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 ">

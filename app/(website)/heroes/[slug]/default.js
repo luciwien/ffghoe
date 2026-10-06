@@ -29,7 +29,7 @@ export default function Post(props) {
   return (
     <>
       <Container className='pt-0'>
-        <div className='mx-auto max-w-screen-md '>
+        <div className='mx-auto max-w-3xl '>
           <div className='flex justify-center'>
             <CategoryLabel categories={post.categories} />
           </div>
@@ -41,7 +41,7 @@ export default function Post(props) {
 
           <div className='mt-3 flex justify-center space-x-3 text-gray-500'>
             <div className='flex items-center gap-3'>
-              <div className='relative h-10 w-10 flex-shrink-0'>
+              <div className='relative h-10 w-10 shrink-0'>
                 {AuthorimageProps && (
                   <Image
                     src={AuthorimageProps.src}
@@ -84,7 +84,7 @@ export default function Post(props) {
 
       </Container>
       <Container>
-        <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
+        <div className='relative z-0 mx-auto aspect-video max-w-3xl overflow-hidden lg:rounded-lg'>
           {imageProps && (
             <Image
               src={imageProps.src}
@@ -104,7 +104,7 @@ export default function Post(props) {
       </Container>
 
       <Container>
-        <article className='mx-auto max-w-screen-md '>
+        <article className='mx-auto max-w-3xl  '>
           <div className='prose mx-auto my-3 prose-a:text-blue-600'>
             {post.body && <PortableText value={post.body} />}
           </div>

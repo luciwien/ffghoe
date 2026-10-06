@@ -45,7 +45,7 @@ export const EventRow = ({event}) => {
                 )}
                 </span>
       </div>
-      <div className={'flex flex-col items-stretch flex-grow'}>
+      <div className={'flex flex-col items-stretch grow'}>
         <h2 className={'text-2xl font-light'}>{event.title}</h2>
         <h3 className={'text-sm font-light'}>{event.excerpt}</h3>
       </div>

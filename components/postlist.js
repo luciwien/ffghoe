@@ -38,7 +38,7 @@ export default function PostList({
               aspect === "landscape"
                 ? "aspect-video"
                 : aspect === "custom"
-                ? "aspect-[5/4]"
+                ? "aspect-5/4"
                 : "aspect-square"
             )}
             href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
@@ -88,12 +88,12 @@ export default function PostList({
                   post.slug.current
                 }`}>
                 <span
-                  className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
+                  className="bg-linear-to-r from-green-200 to-green-100 bg-size-[0px_10px] bg-bottom-left
       bg-no-repeat
       transition-[background-size]
       duration-500
-      hover:bg-[length:100%_3px]
-      group-hover:bg-[length:100%_10px]">
+      hover:bg-size-[100%_3px]
+      group-hover:bg-size-[100%_10px]">
                   {post.title}
                 </span>
               </Link>
@@ -114,7 +114,7 @@ export default function PostList({
 
             <div className="mt-3 flex items-center space-x-3 text-gray-500 ">
                 <div className="flex items-center gap-3">
-                  <div className="relative h-5 w-5 flex-shrink-0">
+                  <div className="relative h-5 w-5 shrink-0">
                     {post?.author?.image && (
                       <Image
                         src={AuthorimageProps.src}

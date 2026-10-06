@@ -32,7 +32,7 @@ console.log(events[0])
       </div>
       <Container>
 
-        <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>
+        <div className={'lg:max-w-5xl max-h-48 lg:mt-12'}>
           <h1
             className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl '}>Blog</h1>
         </div>
@@ -55,7 +55,7 @@ console.log(events[0])
       </Container>
        <Container>
 
-        <div className={'lg:max-w-screen-lg max-h-48 lg:mt-12'}>
+        <div className={'lg:max-w-3xl max-h-48 lg:mt-12'}>
           <h1
             className={'mt-2 mb-3 text-3xl font-light text-center tracking-tight lg:leading-snug text-brand-primary lg:text-4xl '}>Termine</h1>
         </div>
@@ -122,7 +122,7 @@ export const EventRow = ({event}) => {
                 )}
                 </span>
       </div>
-      <div className={'flex flex-col items-stretch flex-grow'}>
+      <div className={'flex flex-col items-stretch grow'}>
         <h2 className={'text-2xl font-light'}>{event.title}</h2>
         <p className={'text-sm font-light'}>{event.description}</p>
       </div>

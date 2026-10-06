@@ -88,7 +88,7 @@ export default function GalleryDispatcher({ data }) {
               <div
                 key={img._key || idx}
                 onClick={() => setActiveIdx(idx)}
-                className="relative w-[88%] md:w-[75%] shrink-0 aspect-[16/10] snap-center overflow-hidden rounded-2xl bg-slate-100 shadow-md border border-slate-100 cursor-zoom-in"
+                className="relative w-[88%] md:w-[75%] shrink-0 aspect-16/10 snap-center overflow-hidden rounded-2xl bg-slate-100 shadow-md border border-slate-100 cursor-zoom-in"
               >
                 <Image
                   src={urlFor(img).width(1200).height(750).fit('crop').url()}
@@ -135,10 +135,10 @@ export default function GalleryDispatcher({ data }) {
       {/* CINEMATIC FULLSCREEN LIGHTBOX MODAL                                       */}
       {/* ========================================================================= */}
       {activeIdx !== null && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md select-none animate-fadeIn">
+        <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/95 backdrop-blur-md select-none animate-fadeIn">
           
           {/* Top Control Bar: Close indicator */}
-          <div className="absolute top-4 right-4 z-[10000] flex items-center gap-4">
+          <div className="absolute top-4 right-4 z-10000 flex items-center gap-4">
             <span className="text-sm font-semibold text-slate-400 tracking-wider">
               {activeIdx + 1} / {images.length}
             </span>
@@ -156,7 +156,7 @@ export default function GalleryDispatcher({ data }) {
           {/* Lightbox: Left Drive Arrow */}
           <button
             onClick={() => handleLightboxNav('prev')}
-            className="absolute left-4 top-1/2 z-[10000] -translate-y-1/2 p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all active:scale-90"
+            className="absolute left-4 top-1/2 z-10000 -translate-y-1/2 p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all active:scale-90"
             aria-label="Previous fullscreen image"
           >
             <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
@@ -167,7 +167,7 @@ export default function GalleryDispatcher({ data }) {
           {/* Lightbox: Right Drive Arrow */}
           <button
             onClick={() => handleLightboxNav('next')}
-            className="absolute right-4 top-1/2 z-[10000] -translate-y-1/2 p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all active:scale-90"
+            className="absolute right-4 top-1/2 z-10000 -translate-y-1/2 p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all active:scale-90"
             aria-label="Next fullscreen image"
           >
             <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">

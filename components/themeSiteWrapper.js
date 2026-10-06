@@ -10,7 +10,7 @@ export default function ThemeSiteWrapper({ themenListe, siteContent, slug, slugp
   return (
 
 
-      <div className={'max-w-screen-lg m-auto flex flex-col lg:flex-row px-2 py-4  '}>
+      <div className={'max-w-5xl m-auto flex flex-col lg:flex-row px-2 py-4  '}>
         <div className={'mt-4 flex flex-col w-full divide-black divide-y-2 lg:w-1/4 lg:pr-5 '}>
           <div></div>
           {themenListe?.map((currentThema, index) => {

@@ -30,7 +30,7 @@ export default function Post(props) {
   return (
     <>
       <Container className='pt-0'>
-        <div className='mx-auto max-w-screen-md '>
+        <div className='mx-auto max-w-3xl '>
           <div className='flex justify-center'>
             <CategoryLabel categories={post.categories} />
           </div>
@@ -85,7 +85,7 @@ export default function Post(props) {
 
       </Container>
       <Container>
-        <div className='relative z-0 mx-auto aspect-video max-w-screen-lg overflow-hidden lg:rounded-lg'>
+        <div className='relative z-0 mx-auto aspect-video max-w-5xl overflow-hidden lg:rounded-lg'>
           {imageProps && (
             <Image
               src={imageProps.src}
@@ -105,7 +105,7 @@ export default function Post(props) {
       </Container>
 
       <Container>
-        <article className='mx-auto max-w-screen-md '>
+        <article className='mx-auto max-w-3xl '>
           <div className='prose mx-auto my-3 prose-a:text-blue-600'>
             {post.body && <PortableText value={post.body} />}
           </div>
