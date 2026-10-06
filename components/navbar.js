@@ -23,12 +23,7 @@ export default function Navbar({ settings, aboutPages, infocornerPages }) {
     {
       label: 'Infocorner',
       href: '/infocorner',
-      children: [
-        { title: 'Queer Football Heroes', path: '/queerfootballheroes' },
-        ...(infocornerPages ?? [])
-          .filter(page => page.slug.current !== 'begriffe')
-          .map(page => ({ title: page.title, path: "/infocorner/" + page.slug.current }))
-      ]
+      children: infocornerPages?.map(page => ({ title: page.title, path: "/infocorner/" + page.slug.current }))
     },
     {
       label: 'Kontakt',

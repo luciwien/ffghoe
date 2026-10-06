@@ -11,7 +11,6 @@ import settings from "./lib/sanity/schemas/settings";
 import impressum from "./lib/sanity/schemas/impressum";
 import about from "./lib/sanity/schemas/about";
 import infocorner from "./lib/sanity/schemas/infocorner";
-import queerfootballheroes from './lib/sanity/schemas/queerfootballheroes'
 import landingpage from './lib/sanity/schemas/landingpage';
 import {
   pageStructure,
@@ -34,11 +33,11 @@ export default defineConfig({
 
   plugins: [
     structureTool({
-      structure: pageStructure([landingpage,about, mitgliedWerden, infocorner, queerfootballheroes, impressum,settings])
+      structure: pageStructure([landingpage,about, mitgliedWerden, infocorner, impressum,settings])
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       // defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
-    singletonPlugin(["landingpage", "about","Infocorner","mitgliedWerden","queerfootballheroes", "impressum","settings"]),
+    singletonPlugin(["landingpage", "about","Infocorner","mitgliedWerden", "impressum","settings"]),
     visionTool(),
     unsplashImageAsset(),
     table(),

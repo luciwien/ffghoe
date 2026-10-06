@@ -1,4 +1,4 @@
-import {getSubsiteBySlug, getAllSubsiteSlugs, getInfocornerPages } from '@/lib/sanity/client'
+import {getSubsiteBySlug, getAllSubsiteSlugs, getInfocornerPages,getHeroes } from '@/lib/sanity/client'
 import InfocornerPage from "./default";
 
 export async function generateStaticParams() {
@@ -13,11 +13,12 @@ export async function generateMetadata({ params }) {
 
 export default async function InfocornerDefault({ params }) {
   const infocornerPages = await getInfocornerPages();
+  const heroes = await getHeroes();
   
   const {slug} = await params; 
   
   const infocorner = await getSubsiteBySlug(slug);
-  return <InfocornerPage infocornerPages={infocornerPages} infocorner={infocorner}/>;
+  return <InfocornerPage infocornerPages={infocornerPages} infocorner={infocorner} heroes={heroes}/>;
 }
 
 // export const revalidate = 60;
